@@ -7,6 +7,7 @@ metadata:
   labels:
     app: nginx-deploy
 spec:
+  replicas: 2
   selector:
     matchLabels:
       app: nginx-deploy
@@ -15,7 +16,6 @@ spec:
       labels:
         app: nginx-deploy
     spec:
-      replicas: 2
       containers:
         - name: nginx-inside-1
           image: nginx:1.24.0
