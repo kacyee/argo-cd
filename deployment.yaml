@@ -24,3 +24,12 @@ spec:
           limits:
             cpu: 200m
             memory: 200M
+      - name: node-container
+        image: node:20-slim
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100M
+          limits:
+            cpu: 200m
+            memory: 200M
