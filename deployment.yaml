@@ -18,6 +18,10 @@ spec:
       containers:
       - name: nginx-inside-1
         image: nginx:1.24.0
+        volumeMounts:
+        - name: configmap
+          mountPath: "/etc/configmap"
+          readOnly: true
         resources:
           requests:
             cpu: 100m
