@@ -1,3 +1,4 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -16,20 +17,20 @@ spec:
     spec:
       replicas: 2
       containers:
-      - name: nginx-inside-1
-        image: nginx:1.24.0
-        volumeMounts:
+        - name: nginx-inside-1
+          image: nginx:1.24.0
+          volumeMounts:
+            - name: config-map
+              mountPath: /etc/data
+              readOnly: true
+          resources:
+            requests:
+              cpu: 100m
+              memory: 100M
+            limits:
+              cpu: 200m
+              memory: 200M
+      volumes:
         - name: config-map
-          mountPath: "/etc/data"
-          readOnly: true
-        resources:
-          requests:
-            cpu: 100m
-            memory: 100M
-          limits:
-            cpu: 200m
-            memory: 200M
-    volumes:
-    - name: config-map
-      configMap:
-        name: nginx-config-map
+          configMap:
+            name: nginx-config-map
