@@ -20,7 +20,7 @@ spec:
         image: nginx:1.24.0
         volumeMounts:
         - name: configmap
-          mountPath: "/etc/configmap"
+          mountPath: "/etc/data"
           readOnly: true
         resources:
           requests:
