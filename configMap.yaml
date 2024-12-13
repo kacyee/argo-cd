@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-config-map
+  namespace: patryk-p
+data:
+  app.config: |
+    db.host=example.com
+    db.user=workshop
