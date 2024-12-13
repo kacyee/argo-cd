@@ -32,10 +32,22 @@ spec:
             limits:
               cpu: 200m
               memory: 200M
-        - name: ngode20
+        - name: node20
           image: node:20-slim
           ports:
-            - containerPort: 80
+            - containerPort: 8080
+          command: ["node"]
+          args:
+            - "-e"
+            - |
+              const http = require('http');
+              const port = 8080;
+              http.createServer((req, res) => {
+                res.writeHead(200, { 'Content-Type': 'text/plain' });
+                res.end('Hello from Node.js!\n');
+              }).listen(port, () => {
+                console.log(`Server running on http://localhost:${port}`);
+              });
           volumeMounts:
             - name: config-map
               mountPath: /etc/data
