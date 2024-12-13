@@ -17,19 +17,6 @@ spec:
       containers:
       - name: nginx-inside-1
         image: nginx:1.24.0
-        ports:
-          - containerPort: 80
-        resources:
-          requests:
-            cpu: 100m
-            memory: 100M
-          limits:
-            cpu: 200m
-            memory: 200M
-      - name: node-container
-        image: node:20-slim
-        ports:
-          - containerPort: 8888
         resources:
           requests:
             cpu: 100m
